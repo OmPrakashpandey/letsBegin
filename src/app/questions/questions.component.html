@@ -1,0 +1,111 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Questions</h4>
+                        <p class="card-category">Create Questions</p>
+                    </div>
+                    <div class="card-body">
+                        <form #loginForm="ngForm">
+                            <div class="card" *ngFor="let question of questions; let questionIndex=index">
+                                <div class="card-body">
+
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <mat-select (selectionChange)="changeType()" [(ngModel)]="question.type"
+                                                name="type" placeholder="question Type" required>
+                                                <mat-option value="readonly">Read Only</mat-option>
+                                                <mat-option *ngFor="let questionType of questionTypes"
+                                                    [value]="questionType.id">
+                                                    {{questionType.name}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <mat-form-field class="example-full-width">
+                                                <input [(ngModel)]="question.question" matInput placeholder="Question"
+                                                [ngModelOptions]="{standalone: true}"
+                                                    type="text">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button mat-raised-button
+                                                (click)="questions.splice(questionIndex+1,0,{type:'singleSelect',options:[{}]});"
+                                                class="btn btn-white btn-round btn-just-icon"> <i
+                                                    class="material-icons">add_circle</i></button>
+                                            <button mat-raised-button (click)="questions.splice(questionIndex,1);"
+                                                class="btn btn-white btn-round btn-just-icon"> <i
+                                                    class="material-icons">remove_circle</i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <!-- <mat-radio-group class="option-radio-group" name="status"
+                                                [(ngModel)]="question.answer"> -->
+                                                <div class="row">
+                                                    <div class="col-md-6"
+                                                        *ngFor="let option of question.options; let optionIndex=index;">
+                                                        <div class="row">
+                                                            <div class="col-md-1">
+                                                                <mat-radio-button name="{{questionIndex+'opt'}}" (click)="question.answer=option.value" [value]="option.value" class="option-radio-button col-md-12">
+                                                                </mat-radio-button>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <mat-form-field>
+                                                                    <input class="option-input-width" matInput
+                                                                        [(ngModel)]="option.value"  [ngModelOptions]="{standalone: true}"
+                                                                        placeholder="{{'option-'+(optionIndex+1)}}"
+                                                                        type="text">
+
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <button mat-raised-button
+                                                                    (click)="question.options.splice(optionIndex+1,0,{});"
+                                                                    class="btn btn-white btn-round btn-just-icon"> <i
+                                                                        class="material-icons">add_circle</i></button>
+                                                                <button mat-raised-button
+                                                                    (click)="question.options.splice(optionIndex,1);"
+                                                                    class="btn btn-white btn-round btn-just-icon"> <i
+                                                                        class="material-icons">remove_circle</i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <!-- </mat-radio-group> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" (click)="save()" class="btn btn-danger pull-right">Update
+                                Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I
+                            love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

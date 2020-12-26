@@ -1,0 +1,67 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Exam</h4>
+                        <p class="card-category">Science Quiz</p>
+                    </div>
+                    <div class="card-body">
+                        <form #loginForm="ngForm">
+                            <div class="card" *ngFor="let question of questions; let questionIndex=index">
+                                <div class="card-body">
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                           <strong>{{(questionIndex+1) +' - '}}</strong> {{question.question}}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-radio-group class="option-radio-group"  [ngModelOptions]="{standalone: true}"
+                                                [(ngModel)]="question.answer">
+
+
+                                                <mat-radio-button class="option-radio-button col-md-12"
+                                                    *ngFor="let option of question.options; let optionIndex=index;">
+                                                    {{option.value}}
+                                                </mat-radio-button>
+
+                                            </mat-radio-group>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Submit
+                                </button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I
+                            love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

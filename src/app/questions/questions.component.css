@@ -1,0 +1,20 @@
+/* .option-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+   */
+  /* .option-radio-button {
+    margin-right: 15px;
+  }
+  
+  .option-input-width {
+    min-width: 150px;
+    max-width: 500px;
+  }  */
+  .example-card {
+  max-width: 100%;
+  margin: 20px;
+}
+
+  

@@ -10,6 +10,8 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { QuestionsComponent } from '../../questions/questions.component';
+import { ExamComponent } from '../../exam/exam.component';
 import { RecurrentModule } from '../../common/common.module';
 
 @NgModule({
@@ -26,6 +28,8 @@ import { RecurrentModule } from '../../common/common.module';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    QuestionsComponent,
+    ExamComponent
   ]
 })
 
