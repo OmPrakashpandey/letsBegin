@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';;
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import * as $ from "jquery";
+import { CountDownComponent } from './count-down/count-down.component';
 export const configFactory = (configService: ConfigService) => {
   return () => configService.loadConfig().then((config)=> config);
 };
 @NgModule({
-  declarations: [],
+  declarations: [CountDownComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -21,7 +22,8 @@ export const configFactory = (configService: ConfigService) => {
     CommonModule,
     FormsModule,
     HttpClientModule ,
-    MaterialModule
+    MaterialModule,
+    CountDownComponent
   ],
   providers:[UtilsService, {
     provide: APP_INITIALIZER,
